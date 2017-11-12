@@ -31,7 +31,7 @@ print "GPIO version:  " + str(GPIO.VERSION)
 print "temperature sensor type: DHT" + str(TempSensorType)
 print "temperature GPIO Pin: " + str(TempGPIOPin)
 print "Moisture GPIO Pin: " + str(MoistureGPIOPin)
-print "Heating Pad Relay: " + str(HeatingPadGPIOPin)
+print "Heating Pad Relay: " + str(HeatingPadRelayGPIOPin)
 print "Pump Relay" + str(PumpRelayGPIOPin)
 print "------------------------------------"
 
