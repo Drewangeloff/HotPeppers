@@ -31,8 +31,8 @@ print "GPIO version:  " + str(GPIO.VERSION)
 print "temperature sensor type: DHT" + str(TempSensorType)
 print "temperature GPIO Pin: " + str(TempGPIOPin)
 print "Moisture GPIO Pin: " + str(MoistureGPIOPin)
-print "Heating Pad Relay: " + "Not implemented!"
-print "Pump Relay" + "Not implemented!"
+print "Heating Pad Relay: " + str(HeatingPadGPIOPin)
+print "Pump Relay" + str(PumpRelayGPIOPin)
 print "------------------------------------"
 
 def getTemperatureAndHumidity():
