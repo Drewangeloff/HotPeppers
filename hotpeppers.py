@@ -11,13 +11,20 @@ GPIO.setmode(GPIO.BCM)
 TempSensorType = 11
 TempGPIOPin = 17
 MoistureGPIOPin = 25
-PumpRelay = -1
-HeatingPadRelay = -1
+PumpRelayGPIOPin = 20
+HeatingPadRelayGPIOPin = 21 
 
 #setup the GPIO pins
 GPIO.setup(MoistureGPIOPin,GPIO.IN)
+GPIO.setup(MoistureGPIOPin,GPIO.OUT)
+GPIO.setup(MoistureGPIOPin,GPIO.OUT)
 
-#Greeting
+#setup variables for temperature 
+#(note, we don't have to set a moisture threshhold, as the sensor is binary - the sensor returns 1 if it's too dry) 
+minimumTemp = 75
+
+
+#Greeting and settings readout
 print "------------------------------------"
 print "Welcome to Hot Peppers!"
 print "GPIO version:  " + str(GPIO.VERSION)
@@ -57,21 +64,24 @@ print "entering main loop..."
 
 #just do this forever
 while (1==1):
-	#read the sensors
+	
+	#read from the sensors
 	print "reading temperature sensor"
 	humidity, temperature = getTemperatureAndHumidity()
-
 	print "reading the moisture sensor"
 	moisture = getMoisture()
 
-	#print out time and sensor data.
-	#TODO this is where we stick the sensor data into a local mySQL or CSV so we can make a nice chart over time
+	#print out time and sensor data. TODO this is where we stick the sensor data into a local mySQL or CSV so we can make a nice chart over time
 	print datetime.datetime.now()
 	printTemperatureAndHumidity(humidity,temperature)
 	printMoisture(moisture)
 
-	#take action
-	#if temperature is too low, activate HeatingPadRelay
-	#if moisture is too low, activate PumpRelay
+	#take action	
+	if temperature < minimumTemp:
+    		print "activating heating pad"
+			#activate HeatingPadRelay
 
+	if moisture == 1:
+		"activating pump"
+		#activate PumpRelay
 	
