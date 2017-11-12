@@ -1,4 +1,3 @@
-
 import sys
 import Adafruit_DHT
 import  RPi.GPIO as GPIO
@@ -29,7 +28,7 @@ print "Heating Pad Relay: " + "Not implemented!"
 print "Pump Relay" + "Not implemented!"
 print "------------------------------------"
 
-def getTemp():
+def getTemperatureAndHumidity():
     #reading and throwing away result.  Sometimes sensor gives bogus results on first read
 	#this is apparently a known issue with the sensor according to interwebs.
 	hum, temp= Adafruit_DHT.read_retry(TempSensorType, TempGPIOPin)
@@ -41,7 +40,7 @@ def getTemp():
 def getMoisture():
 	return GPIO.input(MoistureGPIOPin)
 
-def printTemperature(hum, temp):
+def printTemperatureAndHumidity(hum, temp):
 	print "---------------------------------"
 	print "TEMPERATURE"
 	print "humidity: " + str(humidity)
@@ -60,7 +59,7 @@ print "entering main loop..."
 while (1==1):
 	#read the sensors
 	print "reading temperature sensor"
-	humidity, temperature = getTemp()
+	humidity, temperature = getTemperatureAndHumidity()
 
 	print "reading the moisture sensor"
 	moisture = getMoisture()
@@ -68,7 +67,7 @@ while (1==1):
 	#print out time and sensor data.
 	#TODO this is where we stick the sensor data into a local mySQL or CSV so we can make a nice chart over time
 	print datetime.datetime.now()
-	printTemperature()
+	printTemperatureAndHumidity()
 	printMoisture()
 
 	#take action
