@@ -48,7 +48,7 @@ def printTemperatureAndHumidity(hum, temp):
 	print "---------------------------------"
     	
 def printMoisture(moist):
-    print "---------------------------------"
+   	print "---------------------------------"
 	print "MOISTURE"
 	print moist
 	print "---------------------------------"
@@ -67,8 +67,8 @@ while (1==1):
 	#print out time and sensor data.
 	#TODO this is where we stick the sensor data into a local mySQL or CSV so we can make a nice chart over time
 	print datetime.datetime.now()
-	printTemperatureAndHumidity()
-	printMoisture()
+	printTemperatureAndHumidity(humidity,temperature)
+	printMoisture(moisture)
 
 	#take action
 	#if temperature is too low, activate HeatingPadRelay
