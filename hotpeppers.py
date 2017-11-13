@@ -16,8 +16,8 @@ HeatingPadRelayGPIOPin = 21
 
 #setup the GPIO pins
 GPIO.setup(MoistureGPIOPin,GPIO.IN)
-GPIO.setup(MoistureGPIOPin,GPIO.OUT)
-GPIO.setup(MoistureGPIOPin,GPIO.OUT)
+GPIO.setup(PumpRelayGPIOPin,GPIO.OUT)
+GPIO.setup(HeatingPadRelayGPIOPin,GPIO.OUT)
 
 #setup variables for temperature 
 #(note, we don't have to set a moisture threshhold, as the sensor is binary - the sensor returns 1 if it's too dry) 
