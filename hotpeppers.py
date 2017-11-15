@@ -1,6 +1,6 @@
 import sys
 import Adafruit_DHT
-import  RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 import time
 import datetime
 
@@ -11,15 +11,15 @@ GPIO.setmode(GPIO.BCM)
 TempSensorType = 11
 TempGPIOPin = 17
 MoistureGPIOPin = 25
-PumpRelayGPIOPin = 20
-HeatingPadRelayGPIOPin = 21 
+PumpRelayGPIOPin = 4
+HeatingPadRelayGPIOPin = 27
 
 #setup the GPIO pins
 GPIO.setup(MoistureGPIOPin,GPIO.IN)
 GPIO.setup(PumpRelayGPIOPin,GPIO.OUT)
 GPIO.setup(HeatingPadRelayGPIOPin,GPIO.OUT)
 
-#setup variables for temperature 
+#setup variables for temperature
 #(note, we don't have to set a moisture threshhold, as the sensor is binary - the sensor returns 1 if it's too dry) 
 minimumTemp = 75
 
@@ -53,7 +53,7 @@ def printTemperatureAndHumidity(hum, temp):
 	print "humidity: " + str(humidity)
 	print "temperature: " + str(temperature)
 	print "---------------------------------"
-    	
+
 def printMoisture(moist):
    	print "---------------------------------"
 	print "MOISTURE"
@@ -64,7 +64,6 @@ print "entering main loop..."
 
 #just do this forever
 while (1==1):
-	
 	#read from the sensors
 	print "reading temperature sensor"
 	humidity, temperature = getTemperatureAndHumidity()
@@ -76,12 +75,12 @@ while (1==1):
 	printTemperatureAndHumidity(humidity,temperature)
 	printMoisture(moisture)
 
-	#take action	
+	#take action
 	if temperature < minimumTemp:
     		print "activating heating pad"
 			#activate HeatingPadRelay
 
 	if moisture == 1:
-		"activating pump"
+		print "activating pump"
 		#activate PumpRelay
-	
+
