@@ -12,17 +12,16 @@ TempSensorType = 11
 TempGPIOPin = 17
 MoistureGPIOPin = 25
 PumpRelayGPIOPin = 4
-HeatingPadRelayGPIOPin = 27
+HeatingPad = 26
 
 #setup the GPIO pins
 GPIO.setup(MoistureGPIOPin,GPIO.IN)
 GPIO.setup(PumpRelayGPIOPin,GPIO.OUT)
-GPIO.setup(HeatingPadRelayGPIOPin,GPIO.OUT)
+GPIO.setup(HeatingPad,GPIO.OUT)
 
 #setup variables for temperature
 #(note, we don't have to set a moisture threshhold, as the sensor is binary - the sensor returns 1 if it's too dry) 
 minimumTemp = 75
-
 
 #Greeting and settings readout
 print "------------------------------------"
@@ -31,12 +30,12 @@ print "GPIO version:  " + str(GPIO.VERSION)
 print "temperature sensor type: DHT" + str(TempSensorType)
 print "temperature GPIO Pin: " + str(TempGPIOPin)
 print "Moisture GPIO Pin: " + str(MoistureGPIOPin)
-print "Heating Pad Relay: " + str(HeatingPadRelayGPIOPin)
+print "Heating Pad Relay: " + str(HeatingPad)
 print "Pump Relay" + str(PumpRelayGPIOPin)
 print "------------------------------------"
 
 def getTemperatureAndHumidity():
-    #reading and throwing away result.  Sometimes sensor gives bogus results on first read
+    	#reading and throwing away result.  Sometimes sensor gives bogus results on first read
 	#this is apparently a known issue with the sensor according to interwebs.
 	hum, temp= Adafruit_DHT.read_retry(TempSensorType, TempGPIOPin)
 	hum, temp = Adafruit_DHT.read_retry(TempSensorType, TempGPIOPin)
@@ -60,6 +59,28 @@ def printMoisture(moist):
 	print moist
 	print "---------------------------------"
 
+def relayTest(pin):
+	sleeptime =  0.1
+	for i in range(1,20):
+		print i
+#		GPIO.cleanup()
+#		GPIO.setmode(GPIO.BCM)
+#		GPIO.setup(PumpRelayGPIOPin,GPIO.OUT)
+#		GPIO.setup(HeatingPad,GPIO.OUT)		
+		print str(HeatingPad) + "hp"
+		print str(PumpRelayGPIOPin) + "pr"
+
+		GPIO.output(pin, GPIO.LOW)
+		time.sleep(sleeptime)
+		GPIO.output(pin, GPIO.HIGH)
+		time.sleep(sleeptime)
+
+while (1==1):
+	relayTest(PumpRelayGPIOPin)
+	time.sleep(1)
+	relayTest(HeatingPad)
+	time.sleep(1)
+
 print "entering main loop..."
 
 #just do this forever
@@ -78,9 +99,16 @@ while (1==1):
 	#take action
 	if temperature < minimumTemp:
     		print "activating heating pad"
-			#activate HeatingPadRelay
-
+		#activate HeatingPad
+		GPIO.output(HeatingPad,LOW)
+		time.sleep(60)
+		GPIO.output(HeatingPad,HIGH)
+	
 	if moisture == 1:
 		print "activating pump"
 		#activate PumpRelay
+		GPIO.output(PumpRelayGPIOPin,LOW)
+		time.sleep(1)
+		GPIO.output(PumpRelayGPIOPim,HIGH)
 
+GPIO.cleanup()
