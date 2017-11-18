@@ -65,10 +65,11 @@ def relayTest(pin):
 		print i
 #		GPIO.cleanup()
 #		GPIO.setmode(GPIO.BCM)
-#		GPIO.setup(PumpRelayGPIOPin,GPIO.OUT)
-#		GPIO.setup(HeatingPad,GPIO.OUT)		
-		print str(HeatingPad) + "hp"
-		print str(PumpRelayGPIOPin) + "pr"
+
+#total hack.  If I don't put this in here, for some reason the relays get 
+#stuck / GPIO turns off
+		GPIO.setup(PumpRelayGPIOPin,GPIO.OUT)
+		GPIO.setup(HeatingPad,GPIO.OUT)
 
 		GPIO.output(pin, GPIO.LOW)
 		time.sleep(sleeptime)
