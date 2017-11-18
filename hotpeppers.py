@@ -13,15 +13,18 @@ TempGPIOPin = 17
 MoistureGPIOPin = 25
 PumpRelayGPIOPin = 4
 HeatingPad = 26
+Fan = 23
 
 #setup the GPIO pins
 GPIO.setup(MoistureGPIOPin,GPIO.IN)
 GPIO.setup(PumpRelayGPIOPin,GPIO.OUT)
 GPIO.setup(HeatingPad,GPIO.OUT)
+GPIO.setup(Fan,GPIO.OUT)
 
 #setup variables for temperature
 #(note, we don't have to set a moisture threshhold, as the sensor is binary - the sensor returns 1 if it's too dry) 
-minimumTemp = 86
+minimumTemp = 85
+maximumTemp = 95
 
 #Greeting and settings readout
 print "------------------------------------"
@@ -32,9 +35,11 @@ print "temperature GPIO Pin: " + str(TempGPIOPin)
 print "Moisture GPIO Pin: " + str(MoistureGPIOPin)
 print "Heating Pad Relay: " + str(HeatingPad)
 print "Pump Relay" + str(PumpRelayGPIOPin)
+print "Fan " + str(Fan)
+
 print "------------------------------------"
 
-def getTemperatureAndHumidity():
+def getTemperatureAndHoumidity():
     	#reading and throwing away result.  Sometimes sensor gives bogus results on first read
 	#this is apparently a known issue with the sensor according to interwebs.
 	hum, temp= Adafruit_DHT.read_retry(TempSensorType, TempGPIOPin)
@@ -98,6 +103,13 @@ while (1==1):
 		GPIO.output(HeatingPad,GPIO.LOW)
 		time.sleep(1)
 		GPIO.output(HeatingPad,GPIO.HIGH)
+
+	if temperature > maximumTemp:
+    		print "activating fan"
+		#activate Fan
+		GPIO.output(Fan,GPIO.LOW)
+		time.sleep(1)
+		GPIO.output(Fan,GPIO.HIGH)
 
 	if moisture == 1:
 		print "activating pump"
