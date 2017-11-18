@@ -21,7 +21,7 @@ GPIO.setup(HeatingPad,GPIO.OUT)
 
 #setup variables for temperature
 #(note, we don't have to set a moisture threshhold, as the sensor is binary - the sensor returns 1 if it's too dry) 
-minimumTemp = 75
+minimumTemp = 86
 
 #Greeting and settings readout
 print "------------------------------------"
@@ -96,7 +96,7 @@ while (1==1):
     		print "activating heating pad"
 		#activate HeatingPad
 		GPIO.output(HeatingPad,GPIO.LOW)
-		time.sleep(60)
+		time.sleep(1)
 		GPIO.output(HeatingPad,GPIO.HIGH)
 
 	if moisture == 1:
