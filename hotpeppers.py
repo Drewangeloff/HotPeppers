@@ -76,12 +76,6 @@ def relayTest(pin):
 		GPIO.output(pin, GPIO.HIGH)
 		time.sleep(sleeptime)
 
-while (1==1):
-	relayTest(PumpRelayGPIOPin)
-	time.sleep(1)
-	relayTest(HeatingPad)
-	time.sleep(1)
-
 print "entering main loop..."
 
 #just do this forever
@@ -101,15 +95,15 @@ while (1==1):
 	if temperature < minimumTemp:
     		print "activating heating pad"
 		#activate HeatingPad
-		GPIO.output(HeatingPad,LOW)
+		GPIO.output(HeatingPad,GPIO.LOW)
 		time.sleep(60)
-		GPIO.output(HeatingPad,HIGH)
-	
+		GPIO.output(HeatingPad,GPIO.HIGH)
+
 	if moisture == 1:
 		print "activating pump"
 		#activate PumpRelay
-		GPIO.output(PumpRelayGPIOPin,LOW)
+		GPIO.output(PumpRelayGPIOPin,GPIO.LOW)
 		time.sleep(1)
-		GPIO.output(PumpRelayGPIOPim,HIGH)
+		GPIO.output(PumpRelayGPIOPin,GPIO.HIGH)
 
 GPIO.cleanup()
