@@ -42,11 +42,11 @@ print "Pump Relay" + str(PumpRelay)
 print "Fan " + str(FanRelay)
 print "------------------------------------"
 
-def getTemperatureAndHoumidity():
+def getTemperatureAndHumidity():
     	#reading and throwing away result.  Sometimes sensor gives bogus results on first read
 	#this is apparently a known issue with the sensor according to interwebs.
-	hum, temp= Adafruit_DHT.read_retry(TempSensorType, TempGPIOPin)
-	hum, temp = Adafruit_DHT.read_retry(TempSensorType, TempGPIOPin)
+	hum, temp= Adafruit_DHT.read_retry(TempSensorType, TempSensor)
+	hum, temp = Adafruit_DHT.read_retry(TempSensorType, TempSensor)
 	#convert C to F
 	temp = temp * 9/5.0 + 32
 	return hum, temp
