@@ -7,19 +7,23 @@ import datetime
 #set up GPIO into BCM as opposed to BOARD
 GPIO.setmode(GPIO.BCM)
 
-#set variables for GPIO pins on the Raspberry Pi to talk to the correct sensors
+#used to inform the Adafruit lib of sensor type
 TempSensorType = 11
-TempGPIOPin = 17
-MoistureGPIOPin = 25
-PumpRelayGPIOPin = 4
-HeatingPad = 26
-Fan = 23
+
+#map GPIO pins to  sensors
+TempSensor = 17
+MoistureSensor = 25
+
+#map GPIO pins to relays
+PumpRelay = 4
+HeatRelay = 26
+FanRelay = 23
 
 #setup the GPIO pins
-GPIO.setup(MoistureGPIOPin,GPIO.IN)
-GPIO.setup(PumpRelayGPIOPin,GPIO.OUT)
-GPIO.setup(HeatingPad,GPIO.OUT)
-GPIO.setup(Fan,GPIO.OUT)
+GPIO.setup(MoistureSensor,GPIO.IN)
+GPIO.setup(PumpRelay,GPIO.OUT)
+GPIO.setup(HeatRelay,GPIO.OUT)
+GPIO.setup(FanRelay,GPIO.OUT)
 
 #setup variables for temperature
 #(note, we don't have to set a moisture threshhold, as the sensor is binary - the sensor returns 1 if it's too dry) 
@@ -31,11 +35,11 @@ print "------------------------------------"
 print "Welcome to Hot Peppers!"
 print "GPIO version:  " + str(GPIO.VERSION)
 print "temperature sensor type: DHT" + str(TempSensorType)
-print "temperature GPIO Pin: " + str(TempGPIOPin)
-print "Moisture GPIO Pin: " + str(MoistureGPIOPin)
-print "Heating Pad Relay: " + str(HeatingPad)
-print "Pump Relay" + str(PumpRelayGPIOPin)
-print "Fan " + str(Fan)
+print "temperature GPIO Pin: " + str(TempSensor)
+print "Moisture GPIO Pin: " + str(MoistureSensor)
+print "Heating Pad Relay: " + str(HeatRelay)
+print "Pump Relay" + str(PumpRelay)
+print "Fan " + str(FanRelay)
 print "------------------------------------"
 
 def getTemperatureAndHoumidity():
@@ -48,7 +52,7 @@ def getTemperatureAndHoumidity():
 	return hum, temp
 
 def getMoisture():
-	return GPIO.input(MoistureGPIOPin)
+	return GPIO.input(MoistureSensor)
 
 def printTemperatureAndHumidity(hum, temp):
 	print "---------------------------------"
@@ -67,13 +71,9 @@ def relayTest(pin):
 	sleeptime =  0.1
 	for i in range(1,20):
 		print i
-#		GPIO.cleanup()
-#		GPIO.setmode(GPIO.BCM)
-
 #total hack.  If I don't put this in here, for some reason the relays get 
 #stuck / GPIO turns off
-		GPIO.setup(PumpRelayGPIOPin,GPIO.OUT)
-		GPIO.setup(HeatingPad,GPIO.OUT)
+		GPIO.setup(pin,GPIO.OUT)
 
 		GPIO.output(pin, GPIO.LOW)
 		time.sleep(sleeptime)
@@ -81,7 +81,6 @@ def relayTest(pin):
 		time.sleep(sleeptime)
 
 print "entering main loop..."
-
 #just do this forever
 while (1==1):
 	#read from the sensors
@@ -99,22 +98,22 @@ while (1==1):
 	if temperature < minTemp:
     		print "activating heating pad"
 		#activate HeatingPad
-		GPIO.output(HeatingPad,GPIO.LOW)
+		GPIO.output(HeatRelay,GPIO.LOW)
 		time.sleep(1)
-		GPIO.output(HeatingPad,GPIO.HIGH)
+		GPIO.output(HeatRelay,GPIO.HIGH)
 
 	if temperature > maxTemp:
     		print "activating fan"
 		#activate Fan
-		GPIO.output(Fan,GPIO.LOW)
+		GPIO.output(FanRelay,GPIO.LOW)
 		time.sleep(1)
-		GPIO.output(Fan,GPIO.HIGH)
+		GPIO.output(FanRelay,GPIO.HIGH)
 
 	if moisture == 1:
 		print "activating pump"
 		#activate PumpRelay
-		GPIO.output(PumpRelayGPIOPin,GPIO.LOW)
+		GPIO.output(PumpRelay,GPIO.LOW)
 		time.sleep(1)
-		GPIO.output(PumpRelayGPIOPin,GPIO.HIGH)
+		GPIO.output(PumpRelay,GPIO.HIGH)
 
 GPIO.cleanup()
