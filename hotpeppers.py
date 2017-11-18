@@ -23,8 +23,8 @@ GPIO.setup(Fan,GPIO.OUT)
 
 #setup variables for temperature
 #(note, we don't have to set a moisture threshhold, as the sensor is binary - the sensor returns 1 if it's too dry) 
-minimumTemp = 85
-maximumTemp = 95
+minTemp = 85
+maxTemp = 95
 
 #Greeting and settings readout
 print "------------------------------------"
@@ -36,7 +36,6 @@ print "Moisture GPIO Pin: " + str(MoistureGPIOPin)
 print "Heating Pad Relay: " + str(HeatingPad)
 print "Pump Relay" + str(PumpRelayGPIOPin)
 print "Fan " + str(Fan)
-
 print "------------------------------------"
 
 def getTemperatureAndHoumidity():
@@ -97,14 +96,14 @@ while (1==1):
 	printMoisture(moisture)
 
 	#take action
-	if temperature < minimumTemp:
+	if temperature < minTemp:
     		print "activating heating pad"
 		#activate HeatingPad
 		GPIO.output(HeatingPad,GPIO.LOW)
 		time.sleep(1)
 		GPIO.output(HeatingPad,GPIO.HIGH)
 
-	if temperature > maximumTemp:
+	if temperature > maxTemp:
     		print "activating fan"
 		#activate Fan
 		GPIO.output(Fan,GPIO.LOW)
