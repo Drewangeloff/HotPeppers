@@ -5,6 +5,7 @@ import time
 import datetime
 
 #set up GPIO into BCM as opposed to BOARD
+GPIO.cleanup()
 GPIO.setmode(GPIO.BCM)
 
 #used to inform the Adafruit lib of sensor type
@@ -24,6 +25,11 @@ GPIO.setup(MoistureSensor,GPIO.IN)
 GPIO.setup(PumpRelay,GPIO.OUT)
 GPIO.setup(HeatRelay,GPIO.OUT)
 GPIO.setup(FanRelay,GPIO.OUT)
+
+#set relays to off
+GPIO.output(HeatRelay,GPIO.LOW)
+GPIO.output(FanRelay,GPIO.LOW)
+GPIO.output(PumpRelay,GPIO.LOW)
 
 #setup variables for temperature
 #(note, we don't have to set a moisture threshhold, as the sensor is binary - the sensor returns 1 if it's too dry) 
@@ -67,14 +73,21 @@ def printMoisture(moist):
 	print moist
 	print "---------------------------------"
 
+def relayHack(pin):
+	#total hack.  If I don't put this in here, for some reason the relays get 
+	#stuck / GPIO turns off
+	#TODO figure out how to fix the Adafruit lib (??!!)
+	GPIO.setup(pin,GPIO.OUT)
+	GPIO.output(HeatRelay,GPIO.LOW)
+	GPIO.output(PumpRelay,GPIO.LOW)
+	GPIO.output(FanRelay,GPIO.LOW)
+	
+
 def relayTest(pin):
-	sleeptime =  0.1
+	sleeptime =  60
 	for i in range(1,20):
 		print i
-#total hack.  If I don't put this in here, for some reason the relays get 
-#stuck / GPIO turns off
-		GPIO.setup(pin,GPIO.OUT)
-
+		relayHack(pin)
 		GPIO.output(pin, GPIO.LOW)
 		time.sleep(sleeptime)
 		GPIO.output(pin, GPIO.HIGH)
@@ -82,10 +95,16 @@ def relayTest(pin):
 
 print "entering main loop..."
 #just do this forever
+
+
+	
+
 while (1==1):
 	#read from the sensors
+	time.sleep(1)
 	print "reading temperature sensor"
 	humidity, temperature = getTemperatureAndHumidity()
+	time.sleep(1)
 	print "reading the moisture sensor"
 	moisture = getMoisture()
 
@@ -93,27 +112,31 @@ while (1==1):
 	print datetime.datetime.now()
 	printTemperatureAndHumidity(humidity,temperature)
 	printMoisture(moisture)
+	time.sleep(1)
 
 	#take action
 	if temperature < minTemp:
     		print "activating heating pad"
 		#activate HeatingPad
+		relayHack(HeatRelay)
 		GPIO.output(HeatRelay,GPIO.LOW)
-		time.sleep(1)
+		time.sleep(10)
 		GPIO.output(HeatRelay,GPIO.HIGH)
 
 	if temperature > maxTemp:
     		print "activating fan"
 		#activate Fan
+		relayHack(FanRelay)
 		GPIO.output(FanRelay,GPIO.LOW)
-		time.sleep(1)
+		time.sleep(10)
 		GPIO.output(FanRelay,GPIO.HIGH)
 
 	if moisture == 1:
 		print "activating pump"
 		#activate PumpRelay
+		relayHack(PumpRelay)
 		GPIO.output(PumpRelay,GPIO.LOW)
-		time.sleep(1)
+		time.sleep(.3)
 		GPIO.output(PumpRelay,GPIO.HIGH)
 
 GPIO.cleanup()
