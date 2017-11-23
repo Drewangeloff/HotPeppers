@@ -21,15 +21,16 @@ HeatRelay = 26
 FanRelay = 23
 
 #setup the GPIO pins
+GPIO.setup(TempSensor, GPIO.IN)
 GPIO.setup(MoistureSensor,GPIO.IN)
 GPIO.setup(PumpRelay,GPIO.OUT)
 GPIO.setup(HeatRelay,GPIO.OUT)
 GPIO.setup(FanRelay,GPIO.OUT)
 
 #set relays to off
-GPIO.output(HeatRelay,GPIO.LOW)
-GPIO.output(FanRelay,GPIO.LOW)
-GPIO.output(PumpRelay,GPIO.LOW)
+GPIO.output(HeatRelay,GPIO.HIGH)
+GPIO.output(FanRelay,GPIO.HIGH)
+GPIO.output(PumpRelay,GPIO.HIGH)
 
 #setup variables for temperature
 #(note, we don't have to set a moisture threshhold, as the sensor is binary - the sensor returns 1 if it's too dry) 
@@ -40,6 +41,8 @@ maxTemp = 95
 print "------------------------------------"
 print "Welcome to Hot Peppers!"
 print "GPIO version:  " + str(GPIO.VERSION)
+print "GPIO setmode" + str(GPIO.setmode(GPIO.BCM))
+print "GPIO RPI_INFO: " + str(GPIO.RPI_INFO)
 print "temperature sensor type: DHT" + str(TempSensorType)
 print "temperature GPIO Pin: " + str(TempSensor)
 print "Moisture GPIO Pin: " + str(MoistureSensor)
@@ -73,32 +76,30 @@ def printMoisture(moist):
 	print moist
 	print "---------------------------------"
 
-def relayHack(pin):
-	#total hack.  If I don't put this in here, for some reason the relays get 
-	#stuck / GPIO turns off
-	#TODO figure out how to fix the Adafruit lib (??!!)
-	GPIO.setup(pin,GPIO.OUT)
-	GPIO.output(HeatRelay,GPIO.LOW)
-	GPIO.output(PumpRelay,GPIO.LOW)
-	GPIO.output(FanRelay,GPIO.LOW)
-	
+def relayHack(pin, state):
+# ABSOLUTE HACK. There is some sort of race condition in the GPIO that is a
+# giant PITA.  Basically, if we are going to use this library, we have to make
+# a workaround where we are making damn sure the relay is off - where off
+# is set to HIGH.  As there is no error thrown by the library, we have to try
+# a bunch of times to make sure.  It feels like a library or HW race condition.
 
-def relayTest(pin):
-	sleeptime =  60
+	for n in range (1,10):
+		GPIO.setup(pin,GPIO.OUT)
+	for n in range (1,10):
+		GPIO.output(pin,state)
+
+#used for debugging GPIO problems
+def testRelay(pin):
+	sleeptime =  1
 	for i in range(1,20):
 		print i
-		relayHack(pin)
-		GPIO.output(pin, GPIO.LOW)
+		relayHack(pin,GPIO.LOW)
 		time.sleep(sleeptime)
-		GPIO.output(pin, GPIO.HIGH)
+		relayHack(pin,GPIO.HIGH)
 		time.sleep(sleeptime)
 
 print "entering main loop..."
 #just do this forever
-
-
-	
-
 while (1==1):
 	#read from the sensors
 	time.sleep(1)
@@ -118,25 +119,21 @@ while (1==1):
 	if temperature < minTemp:
     		print "activating heating pad"
 		#activate HeatingPad
-		relayHack(HeatRelay)
-		GPIO.output(HeatRelay,GPIO.LOW)
+		relayHack(HeatRelay,GPIO.LOW)
 		time.sleep(10)
-		GPIO.output(HeatRelay,GPIO.HIGH)
+		relayHack(HeatRelay,GPIO.HIGH)
 
 	if temperature > maxTemp:
     		print "activating fan"
 		#activate Fan
-		relayHack(FanRelay)
-		GPIO.output(FanRelay,GPIO.LOW)
+		relayHack(FanRelay, GPIO.LOW)
 		time.sleep(10)
-		GPIO.output(FanRelay,GPIO.HIGH)
+		relayHack(FanRelay,GPIO.HIGH)
 
 	if moisture == 1:
 		print "activating pump"
 		#activate PumpRelay
-		relayHack(PumpRelay)
-		GPIO.output(PumpRelay,GPIO.LOW)
+		relayHack(PumpRelay, GPIO.LOW)
 		time.sleep(.3)
-		GPIO.output(PumpRelay,GPIO.HIGH)
-
+		relayHack(PumpRelay, GPIO.HIGH)
 GPIO.cleanup()
