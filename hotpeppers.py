@@ -1,3 +1,5 @@
+import os.path
+import csv
 import sys
 import Adafruit_DHT
 import RPi.GPIO as GPIO
@@ -50,6 +52,20 @@ print "Heating Pad Relay: " + str(HeatRelay)
 print "Pump Relay" + str(PumpRelay)
 print "Fan " + str(FanRelay)
 print "------------------------------------"
+
+def writeDataToCSV():
+	#if the file doesn't exist,  make sure we write a header after the file
+	#is created.
+	writeHeader = False
+	if not os.path.isfile('hpdata.csv'):
+		writeHeader = True
+	
+	with open ('hpdata.csv', 'a') as csvfile:
+		fieldnames = ['datetime', 'temp', 'humidity', 'moisture'] 
+		writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+		if writeHeader:
+			writer.writeheader()
+		writer.writerow({'datetime': str(datetime.datetime.now()), 'temp' : str(temperature), 'humidity' : str(humidity), 'temp' : str(temperature), 'moisture' : str(moisture)})
 
 def getTemperatureAndHumidity():
     	#reading and throwing away result.  Sometimes sensor gives bogus results on first read
@@ -115,6 +131,8 @@ while (1==1):
 	printMoisture(moisture)
 	time.sleep(1)
 
+	#write data out to CSV file.
+	writeDataToCSV()
 	#take action
 	if temperature < minTemp:
     		print "activating heating pad"
