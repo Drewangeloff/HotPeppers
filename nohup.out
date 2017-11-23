@@ -1,0 +1,1465 @@
+hotpeppers.py:8: RuntimeWarning: No channels have been set up yet - nothing to clean up!  Try cleaning up at the end of your program instead!
+  GPIO.cleanup()
+hotpeppers.py:27: RuntimeWarning: This channel is already in use, continuing anyway.  Use GPIO.setwarnings(False) to disable warnings.
+  GPIO.setup(HeatRelay,GPIO.OUT)
+hotpeppers.py:28: RuntimeWarning: This channel is already in use, continuing anyway.  Use GPIO.setwarnings(False) to disable warnings.
+  GPIO.setup(FanRelay,GPIO.OUT)
+------------------------------------
+Welcome to Hot Peppers!
+GPIO version:  0.6.3
+GPIO setmodeNone
+GPIO RPI_INFO: {'P1_REVISION': 3, 'RAM': '1024M', 'REVISION': 'a22082', 'TYPE': 'Pi 3 Model B', 'PROCESSOR': 'BCM2837', 'MANUFACTURER': 'Embest'}
+temperature sensor type: DHT11
+temperature GPIO Pin: 17
+Moisture GPIO Pin: 25
+Heating Pad Relay: 26
+Pump Relay4
+Fan 23
+------------------------------------
+entering main loop...
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:14:13.269513
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:14:30.161943
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:14:47.054671
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:15:03.947320
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:15:20.839704
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:15:37.732046
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:15:54.624750
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:16:11.517280
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:16:28.409879
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:16:45.302543
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:17:02.195343
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:17:19.088037
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:17:35.980701
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:17:52.872898
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:18:09.765625
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:18:26.654893
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:18:43.547343
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:19:00.439842
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:19:17.332576
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:19:34.224824
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:19:51.117049
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:20:08.009390
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:20:24.902011
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:20:41.794391
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:20:58.686688
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:21:15.579335
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:21:32.471969
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:21:49.364242
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:22:06.256744
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:22:23.149142
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:22:40.041878
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:22:56.934225
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:23:13.826874
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:23:30.719474
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:23:47.612345
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:24:04.504881
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:24:21.397368
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:24:38.289560
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:24:55.180517
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:25:12.072967
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:25:28.965354
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:25:45.857859
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:26:02.750541
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:26:19.642974
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:26:36.535477
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:26:53.428202
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:27:10.320939
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:27:27.213442
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:27:44.106362
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:28:03.526688
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:28:20.414860
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:28:37.307716
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:28:56.727976
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:29:13.620653
+---------------------------------
+TEMPERATURE
+humidity: 37.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:29:30.513255
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:29:47.405797
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:30:04.298556
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:30:21.191054
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:30:38.083718
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:30:54.976409
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:31:11.869146
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:31:28.761914
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:31:45.654692
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:32:02.547716
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:32:19.440504
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:32:36.333109
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:32:53.225045
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:33:12.645360
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:33:29.537944
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:33:46.430676
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:34:03.323284
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:34:20.216057
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:34:37.108719
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:34:54.001596
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:35:10.894299
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:35:27.786898
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:35:44.679800
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:36:01.572842
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:36:18.465354
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:36:35.357823
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:36:52.250582
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:37:09.143346
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:37:26.035949
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:37:42.928453
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:37:59.821246
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:38:16.714020
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:38:33.606595
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:38:50.494966
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:39:07.387963
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:39:24.280842
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:39:41.164695
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:39:58.060508
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:40:14.953461
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:40:31.846135
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:40:48.738865
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:41:05.631524
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:41:22.524273
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:41:39.415122
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:41:56.307563
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:42:13.200053
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:42:30.092971
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 78.8
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:42:46.985378
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:43:03.879910
+---------------------------------
+TEMPERATURE
+humidity: 38.0
+temperature: 80.6
+---------------------------------
+---------------------------------
+MOISTURE
+1
+---------------------------------
+activating heating pad
+activating pump
+reading temperature sensor
+reading the moisture sensor
+2017-11-23 12:43:20.772503
+------------------------
