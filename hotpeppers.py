@@ -5,6 +5,8 @@ import Adafruit_DHT
 import RPi.GPIO as GPIO
 import time
 import datetime
+from google.cloud import bigquery
+from oauth2client.service_account import ServiceAccountCredentials
 
 #set up GPIO into BCM as opposed to BOARD
 GPIO.cleanup()
@@ -53,6 +55,45 @@ print "Pump Relay" + str(PumpRelay)
 print "Fan " + str(FanRelay)
 print "------------------------------------"
 
+def setupBQ():
+	scopes = ['https://www.googleapis.com/auth/cloud-platform', 'https://www.googleapis.com/auth/bigquery']
+
+	bigquery_client = bigquery.Client.from_service_account_json(
+        	'HotPeppers-5f416acf6ee1.json', project ='hotpeppers-186922')
+
+	dataset_ref = bigquery_client.dataset('HotPeppersDataSet')
+	dataset = bigquery.Dataset(dataset_ref)
+	dataset.description = 'hot peppers dataset'
+
+	table_ref = dataset.table('HotPeppersTable')
+	table = bigquery.Table(table_ref)
+
+	#blow away the table if it exists
+	try:
+    		print "trying to get existing table..."
+    		table = bigquery_client.get_table(table)
+	except:
+    		print "table didn't exist..."
+    		# Set the table schema
+    		table.schema = (
+    		bigquery.SchemaField('DATETIME', 'DATETIME'),
+    		bigquery.SchemaField('TEMPERATURE', 'FLOAT'),
+    		bigquery.SchemaField('HUMIDITY', 'FLOAT'),
+    		bigquery.SchemaField('MOISTURE', 'INTEGER'),
+    		)
+    		table = bigquery_client.create_table(table)
+		print('Created table {} in dataset {}.'.format(table.table_id, dataset.dataset_id))
+
+	return bigquery_client, table
+
+def writeToBQ(d,t,h,m):
+	ROWS_TO_INSERT = [
+        	(d,t,h,m),
+    	]
+
+	errors = bigquery_client.create_rows(table, ROWS_TO_INSERT)  # API request
+	print errors
+
 def writeDataToCSV():
 	#if the file doesn't exist,  make sure we write a header after the file
 	#is created.
@@ -79,6 +120,7 @@ def getTemperatureAndHumidity():
 def getMoisture():
 	return GPIO.input(MoistureSensor)
 
+#todo:  these values are switched for some reason
 def printTemperatureAndHumidity(hum, temp):
 	print "---------------------------------"
 	print "TEMPERATURE"
@@ -114,7 +156,11 @@ def testRelay(pin):
 		relayHack(pin,GPIO.HIGH)
 		time.sleep(sleeptime)
 
-print "entering main loop..."
+
+print "entering main"
+#set up bigquery 
+bigquery_client,table = setupBQ()
+print bigquery_client, table
 #just do this forever
 while (1==1):
 	#read from the sensors
@@ -131,8 +177,9 @@ while (1==1):
 	printMoisture(moisture)
 	time.sleep(1)
 
-	#write data out to CSV file.
-	writeDataToCSV()
+	#write data out to BQ.
+	writeToBQ(datetime.datetime.now(),temperature, humidity,moisture)
+
 	#take action
 	if temperature < minTemp:
     		print "activating heating pad"
