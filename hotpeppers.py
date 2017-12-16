@@ -185,7 +185,7 @@ while (1==1):
     		print "activating heating pad"
 		#activate HeatingPad
 		relayHack(HeatRelay,GPIO.LOW)
-		time.sleep(10)
+		time.sleep(100)
 		relayHack(HeatRelay,GPIO.HIGH)
 
 	if temperature > maxTemp:
@@ -195,10 +195,12 @@ while (1==1):
 		time.sleep(10)
 		relayHack(FanRelay,GPIO.HIGH)
 
-	if moisture == 1:
-		print "activating pump"
+#disabled pump until we get better hardware solution
+
+#	if moisture == 1:
+#		print "activating pump"
 		#activate PumpRelay
-		relayHack(PumpRelay, GPIO.LOW)
-		time.sleep(.3)
-		relayHack(PumpRelay, GPIO.HIGH)
+#		relayHack(PumpRelay, GPIO.LOW)
+#		time.sleep(.3)
+#		relayHack(PumpRelay, GPIO.HIGH)
 GPIO.cleanup()
